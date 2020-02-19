@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board Game Guide</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <nav>
@@ -15,29 +16,19 @@
             you and your gaming group.  Already have a game you like?  Not a problem!  Our recommendation feature will help you explore similar games.
             Click one of the buttons below to get started.
         </p>
-        <button>
+        <button class="search-button">
             Search all games
         </button>
-        <button>
+        <button class="recommend-button">
             Recommend games
         </button>
     </section>
     <main class="hidden">
         <section class="search">
-            <form>
-                <label for="search-input">Search</label>
-                <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
-                <label for="search-filter">Filters</label>
-                <select id="search-filter" name="search-filter">
-                    <option value="1">Name</option>
-                    <option value="2">Theme</option>
-                </select>
-                <button type="button">Go</button>
-            </form>
         </section>
         <section class="results"> 
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
