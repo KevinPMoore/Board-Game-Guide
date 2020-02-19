@@ -5,13 +5,19 @@ const handleSearchGames = function() {
     `<form>
         <label for="search-input">Search</label>
         <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
-        <label for="search-filter">Filters</label>
-        <select id="search-filter" name="search-filter">
-            <option value="1">Name</option>
-            <option value="2">Theme</option>
+        <label for="filter">Filters</label>
+        <select id="filter" name="filter">
+            <option value="name">Name</option>
+            <option value="designer">Designer</option>
+            <option value="publisher">Publisher</option>
+            <option value="min_players">Minimum Players</option>
+            <option value="max_players">Maximum Players</option>
+            <option value="min_playtime">Minumum Playtime</option>
+            <option value="max_playtime">Maximum Playtime</option>
         </select>
         <button type="button">Go</button>
-    </form>`
+    </form>
+    <p></p>`
     $('.search').html(searchForm)
     console.log('Correct filter options then remove this line')
 };
@@ -21,8 +27,8 @@ const handleRecommendGames = function() {
     `<form>
         <label for="search-input">Search</label>
         <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
-        <label for="recommend-filter">Filters</label>
-        <select id="recommend-filter" name="recommend-filter">
+        <label for="filter">Filters</label>
+        <select id="filter" name="filter">
             <option value="1">Theme</option>
             <option value="2">Mechanics</option>
         </select>

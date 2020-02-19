@@ -19,6 +19,18 @@ const bindRecommend = function() {
     });
 };
 
+const updateSearchFilters = function() {
+    $('.search').on('change', '#filter', event => {
+        let opt = event.currentTarget.value;
+        console.log(opt)
+        if(opt === "name" || "designer" || "publisher") {
+            $('.search').children('p').replaceWith(`<p>TEST STRING</p>`)
+        }else {
+            $('.search').children('p').replaceWith(`<p>TEST NUM</p>`)
+        }
+    })
+}
+
 const render = function() {
 
 };
@@ -26,8 +38,9 @@ const render = function() {
 const main = function() {
   bindSearch();
   bindRecommend();
+  updateSearchFilters();
   console.log('main ran - remove this later');
-  console.log('add filter guide somewhere then remove this line')
+  console.log('filter else on 28 not working')
 };
 
 $(main);
