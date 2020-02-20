@@ -21,28 +21,35 @@ const updateSearchFilters = function() {
     $('.search').on('change', '#filter', event => {
         let opt = event.currentTarget.value;
         console.log(opt)
-        if(opt === 'name' || 'designer' || 'publisher') {
+        if(opt === 'name' || opt === 'designer' || opt === 'publisher') {
             $('.search').children('p').replaceWith(`<p>TEST STRING</p>`)
         }else {
             $('.search').children('p').replaceWith(`<p>TEST NUM</p>`)
-        }
-    })
-}
+        };
+    });
+};
 
 const handleSubmitSearch = function() {
-  console.log('handleSubmitSearch currently only handles searching by name')
-  let query;
+  console.log('handleSubmitSearch currently only handles searching by name');
   $('.search').submit(event => {
     event.preventDefault();
-    query = $('.search').find('input').val();
-    console.log(api.getGameByName(query))
-  })
-  
-}
+    let response;
+    let query = $('.search').find('input').val();
+    api.getGameByName(query)
+      .then(handleDisplayResults(api.getGameByName(query)))
+      .then(res => {
+        response = res
+        console.log('response is ' + response)
+        console.log(api.getGameByName(response))
+        handleDisplayResults(response.games)
+      });
+  });
+};
 
-const handleDisplayResults = function() {
+const handleDisplayResults = function(response) {
   //has to receive the query value from handleSubmitSearch
-  
+  let formattedResponse;
+  $('.results').html(response);
 }
 
 const render = function() {
@@ -54,8 +61,6 @@ const main = function() {
   bindRecommend();
   updateSearchFilters();
   handleSubmitSearch();
-  handleDisplayResults();
-  console.log('filter else on 28 not working');
 };
 
 $(main);

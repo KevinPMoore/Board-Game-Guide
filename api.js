@@ -1,7 +1,7 @@
 'use strict';
 
 const BASE_URL = 'https://www.boardgameatlas.com/api/search?';
-const client_id = 'gGLrG80h9q';
+const client_id = '&client_id=gGLrG80h9q';
 
 const apiFetch = function(...args) {
     let error;
@@ -25,7 +25,7 @@ const apiFetch = function(...args) {
 }
 
 const getGameByName = function(game) {
-    return apiFetch(`${BASE_URL}${game}&client_id=${client_id}`)
+    return apiFetch(`${BASE_URL}${game}${client_id}`);
 }
 
 export default {
