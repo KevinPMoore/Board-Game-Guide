@@ -15,7 +15,7 @@ const handleSearchGames = function() {
             <option value="min_playtime">Minumum Playtime</option>
             <option value="max_playtime">Maximum Playtime</option>
         </select>
-        <button type="button">Go</button>
+        <button type="submit" class="submit">Go</button>
     </form>
     <p></p>`
     $('.search').html(searchForm)
@@ -32,7 +32,7 @@ const handleRecommendGames = function() {
             <option value="1">Theme</option>
             <option value="2">Mechanics</option>
         </select>
-        <button type="button">Go</button>
+        <button type="submit" class="submit">Go</button>
     </form>`
     $('.search').html(recommendForm)
     console.log('Correct filter options then remove this line')
