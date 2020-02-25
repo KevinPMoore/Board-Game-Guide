@@ -22,12 +22,43 @@ const apiFetch = function(...args) {
             }
             return data;
         });
-}
+};
 
-const getGameByName = function(game) {
-    return apiFetch(`${BASE_URL}${game}${client_id}`);
-}
+const getGameByName = function(name) {
+    return apiFetch(`${BASE_URL}name=${name}&${client_id}`);
+};
+
+const getGameByDesigner = function(designer) {
+    console.log('get game by designer ran')
+    return apiFetch(`${BASE_URL}designer=${designer}&${client_id}`);
+};
+
+const getGameByPublisher = function(publisher) {
+    return apiFetch(`${BASE_URL}publisher=${publisher}&${client_id}`);
+};
+
+const getGameByMinPlayers = function(players) {
+    //how to do player count?
+};
+
+const getGameByMaxPlayers = function(players) {
+    //how to do player count?
+};
+
+const getGameByMinPlaytime = function(time) {
+    //should be same as players
+};
+
+const getGameByMaxPlaytime = function(time) {
+    //should be same as players
+};
 
 export default {
-    getGameByName
+    getGameByName,
+    getGameByDesigner,
+    getGameByPublisher,
+    getGameByMinPlayers,
+    getGameByMaxPlayers,
+    getGameByMinPlaytime,
+    getGameByMaxPlaytime
 };

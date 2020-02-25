@@ -17,27 +17,25 @@ const bindRecommend = function() {
     });
 };
 
-const updateSearchFilters = function() {
-    $('.search').on('change', '#filter', event => {
-        let opt = event.currentTarget.value;
-        console.log(opt)
-        if(opt === 'name' || opt === 'designer' || opt === 'publisher') {
-            $('.search').children('p').replaceWith(`<p>TEST STRING</p>`)
-        }else {
-            $('.search').children('p').replaceWith(`<p>TEST NUM</p>`)
-        };
-    });
-};
-
 const handleSubmitSearch = function() {
   console.log('handleSubmitSearch currently only handles searching by name');
   $('.search').submit(event => {
     event.preventDefault();
     let query = $('.search').find('input').val();
-    api.getGameByName(query)
+    let filter = $('.search').find('select').val();
+    console.log('filter is ' + filter);
+    if (filter == "name") {
+      api.getGameByName(query)
       .then(res => {
         handleDisplayResults(res.games)
-      });
+      })
+    }
+    else if (filter == "desinger") {
+      api.getGameByDesigner(query)
+      .then(res => {
+        handleDisplayResults(res.games)
+      })
+    };
   });
 };
 
@@ -68,7 +66,6 @@ const render = function() {
 const main = function() {
   bindSearch();
   bindRecommend();
-  updateSearchFilters();
   handleSubmitSearch();
 };
 
