@@ -33,23 +33,30 @@ const handleSubmitSearch = function() {
   console.log('handleSubmitSearch currently only handles searching by name');
   $('.search').submit(event => {
     event.preventDefault();
-    let response;
     let query = $('.search').find('input').val();
     api.getGameByName(query)
-      .then(handleDisplayResults(api.getGameByName(query)))
       .then(res => {
-        response = res
-        console.log('response is ' + response)
-        console.log(api.getGameByName(response))
-        handleDisplayResults(response.games)
+        console.log('response is ' + res)
+        console.log(api.getGameByName(res))
+        handleDisplayResults(res.games)
       });
   });
 };
 
 const handleDisplayResults = function(response) {
-  //has to receive the query value from handleSubmitSearch
-  let formattedResponse;
-  $('.results').html(response);
+  let formattedResponse = [];
+  response.forEach(function(game) {
+    formattedResponse.push(`<li class="game" data-id="${game.id}>
+        <p class="game-name">${game.name}</p>
+        <img class="game-image" alt="cover art for ${game.name}>
+        <p class="game-play-info">
+          Players: ${game.min_players}-${game.max_players}
+          Duration: ${game.min_playtime}-${game.max_playtime}
+          Rating: ${game.average_user_rating}
+
+      </li>`)
+  });
+  $('.results-list').html(formattedResponse);
 }
 
 const render = function() {
