@@ -36,8 +36,6 @@ const handleSubmitSearch = function() {
     let query = $('.search').find('input').val();
     api.getGameByName(query)
       .then(res => {
-        console.log('response is ' + res)
-        console.log(api.getGameByName(res))
         handleDisplayResults(res.games)
       });
   });
@@ -48,12 +46,16 @@ const handleDisplayResults = function(response) {
   response.forEach(function(game) {
     formattedResponse.push(`<li class="game" data-id="${game.id}>
         <p class="game-name">${game.name}</p>
-        <img class="game-image" alt="cover art for ${game.name}>
+        <img class="game-image" src="${game.image_url} "alt="cover art for ${game.name}>
         <p class="game-play-info">
-          Players: ${game.min_players}-${game.max_players}
-          Duration: ${game.min_playtime}-${game.max_playtime}
-          Rating: ${game.average_user_rating}
-
+          <span>Players:</span> ${game.min_players}-${game.max_players} </br>
+          <span>Duration:</span> ${game.min_playtime}-${game.max_playtime} </br>
+          <span>Rating:</span> ${game.average_user_rating} </br>
+          <span>Description:</span> ${game.description} </br>
+          <span>Designer:</span> ${game.designers} </br>
+          <span>Publisher:</span> ${game.publishers} </br>
+        </p>
+        <a class="game-link" href=${game.url} target="_blank">Learn more</a>
       </li>`)
   });
   $('.results-list').html(formattedResponse);
