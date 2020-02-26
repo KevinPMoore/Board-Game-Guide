@@ -17,6 +17,13 @@ const bindRecommend = function() {
     });
 };
 
+const handleFilterInstructions = function() {
+  let filter = $('.search').find('select').val();
+  if( filter ==="name" ) {
+    //instructions here
+  }
+};
+
 const handleSubmitSearch = function() {
   console.log('handleSubmitSearch currently only handles searching by name');
   $('.search').submit(event => {
@@ -27,13 +34,14 @@ const handleSubmitSearch = function() {
     if (filter == "name") {
       api.getGameByName(query)
       .then(res => {
-        handleDisplayResults(res.games)
+        console.log(res)
+        handleDisplayResults(res)
       })
     }
-    else if (filter == "desinger") {
+    else if (filter == "designer") {
       api.getGameByDesigner(query)
       .then(res => {
-        handleDisplayResults(res.games)
+        handleDisplayResults(res)
       })
     };
   });
@@ -59,13 +67,10 @@ const handleDisplayResults = function(response) {
   $('.results-list').html(formattedResponse);
 }
 
-const render = function() {
-
-};
-
 const main = function() {
   bindSearch();
   bindRecommend();
+  handleFilterInstructions();
   handleSubmitSearch();
 };
 

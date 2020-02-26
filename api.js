@@ -21,7 +21,28 @@ const apiFetch = function(...args) {
                 return Promise.reject(error);
             }
             return data;
-        });
+        })
+        .then(data => {
+            return fetch(`https://www.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q`)
+                .then(res => res.json())
+                .then(mechanics => {
+                    const mechanicsNormalized = mechanics.mechanics.reduce((acc, obj) => {
+                        acc[obj.id] = obj;
+                        return acc;
+                    }, {})
+                    console.log(mechanicsNormalized)
+                    const gamesWithMechanics = data.games.map(game => {
+                        game.mechanics = game.mechanics.map(m => {
+                            return mechanicsNormalized[m.id];
+                        })
+                        return game;
+                    })
+                    console.log(gamesWithMechanics)
+                    return gamesWithMechanics;
+                })
+                .catch()
+        })
+        ;
 };
 
 const getGameByName = function(name) {
