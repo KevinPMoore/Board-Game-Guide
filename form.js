@@ -29,8 +29,8 @@ const handleRecommendGames = function() {
         <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
         <label for="filter">Filters</label>
         <select id="filter" name="filter">
-            <option value="1">Theme</option>
-            <option value="2">Mechanics</option>
+            <option value="theme">Theme</option>
+            <option value="mechanics">Mechanics</option>
         </select>
         <button type="submit" class="submit">Go</button>
     </form>`

@@ -30,19 +30,18 @@ const apiFetch = function(...args) {
                         acc[obj.id] = obj;
                         return acc;
                     }, {})
-                    console.log(mechanicsNormalized)
+                    console.log('mechanicsNormalized is ' + mechanicsNormalized)
                     const gamesWithMechanics = data.games.map(game => {
                         game.mechanics = game.mechanics.map(m => {
                             return mechanicsNormalized[m.id];
                         })
                         return game;
                     })
-                    console.log(gamesWithMechanics)
+                    console.log('gamesWithMechanics is ' + gamesWithMechanics)
                     return gamesWithMechanics;
                 })
                 .catch()
-        })
-        ;
+        });
 };
 
 const getGameByName = function(name) {
@@ -50,7 +49,6 @@ const getGameByName = function(name) {
 };
 
 const getGameByDesigner = function(designer) {
-    console.log('get game by designer ran')
     return apiFetch(`${BASE_URL}designer=${designer}&${client_id}`);
 };
 
@@ -59,19 +57,23 @@ const getGameByPublisher = function(publisher) {
 };
 
 const getGameByMinPlayers = function(players) {
-    //how to do player count?
+    let inclusivePlayers = (players - 1)
+    return apiFetch(`${BASE_URL}gt_min_players=${inclusivePlayers}&${client_id}`)
 };
 
 const getGameByMaxPlayers = function(players) {
-    //how to do player count?
+    let inclusivePlayers = (players + 1)
+    return apiFetch(`${BASE_URL}lt_max_players=${inclusivePlayers}&${client_id}`)
 };
 
 const getGameByMinPlaytime = function(time) {
-    //should be same as players
+    let inclusivePlaytime = (time - 1)
+    return apiFetch(`${BASE_URL}gt_min_playtime=${inclusivePlaytime}&${client_id}`)
 };
 
 const getGameByMaxPlaytime = function(time) {
-    //should be same as players
+    let inclusivePlaytime = (time + 1)
+    return apiFetch(`${BASE_URL}lt_max_playtime=${inclusivePlaytime}&${client_id}`)
 };
 
 export default {

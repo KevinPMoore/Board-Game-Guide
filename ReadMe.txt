@@ -1,8 +1,9 @@
 ToDo
 -Search validation based on filter
--Fix search filter not running
 -Move mechanics translation to a store.js file 
--Add mechanics to the handleDisplayResults function in index.js
+-Fix mechanics to the handleDisplayResults function in index.js
+-Instructions added as a <p> element to form.js
+-handleFilterInstructions moved from index.js to form.js
 
 Structure
 -Search by name, theme, mechanics, players, developer
