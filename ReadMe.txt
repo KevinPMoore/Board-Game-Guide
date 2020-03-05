@@ -1,10 +1,6 @@
 ToDo
--Search validation based on filter
+-Search validation based on filter & error handling for invalid searches
 -Move mechanics translation to a store.js file 
--Fix mechanics to the handleDisplayResults function in index.js
--Instructions added as a <p> element to form.js
+-Instructions added as an alert link element to form.js
+--pull from store and make a string from name keys
 -handleFilterInstructions moved from index.js to form.js
-
-Structure
--Search by name, theme, mechanics, players, developer
--Find similar by theme, mechanics, players, developer

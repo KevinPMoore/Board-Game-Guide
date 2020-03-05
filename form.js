@@ -1,5 +1,7 @@
 'use strict';
 
+import store from './store.js'
+
 const handleSearchGames = function() {
     const searchForm = 
     `<form>
@@ -17,9 +19,8 @@ const handleSearchGames = function() {
         </select>
         <button type="submit" class="submit">Go</button>
     </form>
-    <p></p>`
+    <span>Click here for help with filters</span>`
     $('.search').html(searchForm)
-    console.log('Correct filter options then remove this line')
 };
 
 const handleRecommendGames = function() {
@@ -33,17 +34,35 @@ const handleRecommendGames = function() {
             <option value="mechanics">Mechanics</option>
         </select>
         <button type="submit" class="submit">Go</button>
-    </form>`
+    </form>
+    <span>Click here for help with filters</span>`
     $('.search').html(recommendForm)
-    console.log('Correct filter options then remove this line')
 };
 
-const handleResults = function() {
-
+const handleFilterInstructions = function() {
+    let filter = $('.search').find('select').val();
+    if (filter == "name") {
+        store.alert = "Search for board games by name such as 'Catan'.  This filter accepts a partial match (ex. the search results for 'Cata' would include 'Catan')."
+      }
+      else if (filter == "designer" || filter == "publisher") {
+        store.alert = "Search for games based on the designer or publisher.  These filters require an exact match (ex. 'Klaus' will not return any results but 'Klaus Teuber' will)."
+      }
+      else if (filter == "min_players" || filter == "max_players") {
+        store.alert = "Search for games with a specific number of players.  When using these filters, your search must be a number."
+      }
+      else if (filter == "min_playtime" || filter == "max_playtime") {
+        "Search for games based on how long they take to paly.  When using these filters, your search must be a number."
+      }
+      else if (filter == "mechanics") {
+        //insert mechanics list here
+      }
+      else if (filter == "theme") {
+        //insert themes list here
+      }
 };
 
 export default {
     handleSearchGames,
     handleRecommendGames,
-    handleResults
+    handleFilterInstructions
 };

@@ -1,10 +1,68 @@
 /*color pallete
-
+#B39042
+#FFDE91
+#FFD678
+#637CB3
+#78A3FF
 */
 
 * {
     padding: 0;
     margin: 0;
+}
+
+body {
+    background-color: #78A3FF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: #FFD678;
+    text-shadow: 2px 2px black;
+}
+
+section.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+p.intro {
+    text-align: center;
+    color: #FFDE91;
+    text-shadow: 1px 1px black;
+}
+
+button.search-button {
+    width: 30%;
+    align-self: center;
+    margin: 0.5%;
+}
+
+button.recommend-button {
+    width: 30%;
+    align-self: center;
+    margin: 0.5%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section.search {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
 }
 
 .hidden {

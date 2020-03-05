@@ -19,13 +19,6 @@ const bindRecommend = function() {
     });
 };
 
-const handleFilterInstructions = function() {
-  let filter = $('.search').find('select').val();
-  if( filter ==="name" ) {
-    //instructions here
-  }
-};
-
 const handleSubmitSearch = function() {
   $('.search').submit(event => {
     event.preventDefault();
@@ -73,6 +66,18 @@ const handleSubmitSearch = function() {
         handleDisplayResults(res)
       })
     }
+    else if (filter == "mechanics") {
+      api.getGameByMechanic(query)
+      .then(res => {
+        handleDisplayResults(res)
+      })
+    }
+    else if (filter == "theme") {
+      api.getGameByTheme(query)
+      .then(res => {
+        handleDisplayResults(res)
+      })
+    };
   });
 };
 
@@ -89,7 +94,7 @@ const handleDisplayResults = function(response) {
           <span>Description:</span> ${game.description} </br>
           <span>Designer:</span> ${game.designers} </br>
           <span>Publisher:</span> ${game.publishers} </br>
-          <span>Game Mechanics:</span> ${game.mechanics} </br>
+          <span>Game Mechanics:</span> ${game.mechanics.map(obj => obj.name).join(', ')} </br>
         </p>
         <a class="game-link" href=${game.url} target="_blank">Learn more</a>
       </li>`)
@@ -102,6 +107,8 @@ const main = function() {
   bindRecommend();
   handleFilterInstructions();
   handleSubmitSearch();
+  api.getMechanics();
+  api.getThemes();
 };
 
 $(main);
