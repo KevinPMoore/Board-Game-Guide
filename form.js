@@ -41,6 +41,7 @@ const handleRecommendGames = function() {
 
 const handleFilterInstructions = function() {
     let filter = $('.search').find('select').val();
+
     if (filter == "name" || filter == undefined) {
         store.alert = "Search for board games by name such as 'Catan'.  This filter accepts a partial match (ex. the search results for 'Cata' would include 'Catan')."
       }
@@ -51,13 +52,13 @@ const handleFilterInstructions = function() {
         store.alert = "Search for games with a specific number of players.  When using these filters, your search must be a number."
       }
       else if (filter == "min_playtime" || filter == "max_playtime") {
-        "Search for games based on how long they take to paly.  When using these filters, your search must be a number."
+        store.alert = "Search for games based on how long they take to paly.  When using these filters, your search must be a number."
       }
       else if (filter == "mechanics") {
-        `Search for games that use a specific gameplay mechanic.  This filter requires an exact match.  Valid mechanics are: ${populateMechanicsList}.`
+        store.alert = `Search for games that use a specific gameplay mechanic.  This filter requires an exact match.  Valid mechanics are: ${populateMechanicsList()}.`
       }
-      else if (filter == "theme") {
-        `Search for games that have a specific theme.  This filter requires an exact match.  Valid themes are: ${populateThemesList}.`
+      else { 
+        store.alert = `Search for games that have a specific theme.  This filter requires an exact match.  Valid themes are: ${populateThemesList()}.`
       }
 };
 

@@ -135,7 +135,7 @@ const getGameByTheme = function(theme) {
     let themeObject = store.themes.find(obj => obj.name === theme)
     let themeId = themeObject.id
     return fetch(`${BASE_URL}categories=${themeId}${client_id}`)
-}
+};
 
 export default {
     getGameByName,

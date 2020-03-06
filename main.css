@@ -11,6 +11,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -54,6 +55,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
 }
 
 label {
@@ -69,6 +71,7 @@ button.search-button {
     width: 30%;
     align-self: center;
     margin: 0.5%;
+    
 }
 
 button.recommend-button {
@@ -77,11 +80,14 @@ button.recommend-button {
     margin: 0.5%;
 }
 
-/*Isn't on a new line*/
 button.help-button {
     display: block;
     height: 30px;
     width: 80px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main {
@@ -92,6 +98,7 @@ main {
 
 section.search {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 2%;
 }
@@ -106,11 +113,11 @@ li.game {
     margin-bottom: 3%;
     border: solid #FFD678;
     padding: 2px;
-    min-width: 320px;
+    min-width: 300px;
 }
 
 /*not targeting correctly*/
-p.game-name {
+p#test {
     text-align: center;
     color: #FFDE91;
     text-shadow: 1px 1px black;
@@ -150,6 +157,10 @@ a:hover {
 
 .hidden {
     display: none;
+}
+
+p {
+    margin: 0 !important;
 }
 
 /*To change in media query
