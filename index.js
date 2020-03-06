@@ -94,7 +94,6 @@ const handleSubmitSearch = function() {
 
 const handleDisplayResults = function(response) {
   let formattedResponse = [];
-  console.log(response)
   response.forEach(function(game) {
     formattedResponse.push(
       `<li class="game" data-id="${game.id}>
