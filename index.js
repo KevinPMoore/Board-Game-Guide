@@ -2,6 +2,7 @@
 
 import api from './api.js';
 import form from './form.js';
+import store from './store.js';
 
 const bindSearch = function() {
   $('.landing').on('click', '.search-button', event => {
@@ -17,6 +18,14 @@ const bindRecommend = function() {
         $('.results-list').empty();
         form.handleRecommendGames();
     });
+};
+
+//this doesn't work correctly yet
+const bindHelpButton = function() {
+  $('.search').on('click', '.help-button', event => {
+    form.handleFilterInstructions();
+    alert(store.alert);
+  });
 };
 
 const handleSubmitSearch = function() {
@@ -84,8 +93,12 @@ const handleSubmitSearch = function() {
 const handleDisplayResults = function(response) {
   let formattedResponse = [];
   response.forEach(function(game) {
-    formattedResponse.push(`<li class="game" data-id="${game.id}>
-        <p class="game-name">${game.name}</p>
+    formattedResponse.push(
+      `<li class="game" data-id="${game.id}>
+        <p class="game-name">
+          <span>Title:</span>
+          ${game.name}
+        </p>
         <img class="game-image" src="${game.image_url} "alt="cover art for ${game.name}>
         <p class="game-play-info">
           <span>Players:</span> ${game.min_players}-${game.max_players} </br>
@@ -97,7 +110,8 @@ const handleDisplayResults = function(response) {
           <span>Game Mechanics:</span> ${game.mechanics.map(obj => obj.name).join(', ')} </br>
         </p>
         <a class="game-link" href=${game.url} target="_blank">Learn more</a>
-      </li>`)
+      </li>`
+      )
   });
   $('.results-list').html(formattedResponse);
 }
@@ -105,7 +119,7 @@ const handleDisplayResults = function(response) {
 const main = function() {
   bindSearch();
   bindRecommend();
-  handleFilterInstructions();
+  bindHelpButton();
   handleSubmitSearch();
   api.getMechanics();
   api.getThemes();

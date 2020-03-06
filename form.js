@@ -19,7 +19,7 @@ const handleSearchGames = function() {
         </select>
         <button type="submit" class="submit">Go</button>
     </form>
-    <span>Click here for help with filters</span>`
+    <button class="help-button">Click here for help with filters</button>`
     $('.search').html(searchForm)
 };
 
@@ -35,13 +35,13 @@ const handleRecommendGames = function() {
         </select>
         <button type="submit" class="submit">Go</button>
     </form>
-    <span>Click here for help with filters</span>`
+    <button class="help-button">Click here for help with filters</button>`
     $('.search').html(recommendForm)
 };
 
 const handleFilterInstructions = function() {
     let filter = $('.search').find('select').val();
-    if (filter == "name") {
+    if (filter == "name" || filter == undefined) {
         store.alert = "Search for board games by name such as 'Catan'.  This filter accepts a partial match (ex. the search results for 'Cata' would include 'Catan')."
       }
       else if (filter == "designer" || filter == "publisher") {
@@ -54,12 +54,24 @@ const handleFilterInstructions = function() {
         "Search for games based on how long they take to paly.  When using these filters, your search must be a number."
       }
       else if (filter == "mechanics") {
-        //insert mechanics list here
+        `Search for games that use a specific gameplay mechanic.  This filter requires an exact match.  Valid mechanics are: ${populateMechanicsList}.`
       }
       else if (filter == "theme") {
-        //insert themes list here
+        `Search for games that have a specific theme.  This filter requires an exact match.  Valid themes are: ${populateThemesList}.`
       }
 };
+
+const populateMechanicsList = function () {
+    let mechanicsList = [];
+    store.mechanics.forEach(obj => mechanicsList.push(Object.values(obj)[1]));
+    return(mechanicsList.join(', '));
+};
+
+const populateThemesList = function () {
+    let themesList = [];
+    store.themes.forEach(obj => themesList.push(Object.values(obj)[1]));
+    return(themesList.join(', '))
+}
 
 export default {
     handleSearchGames,
