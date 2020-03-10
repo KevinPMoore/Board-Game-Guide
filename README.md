@@ -17,3 +17,7 @@ Screenshots:
 Built with:
 All front-end code is built using Jquery along with vanilla Javascript and HTML
 The back-end utilizes the Board Game Atlas API hosted at https://www.boardgameatlas.com/api/docs
+
+
+Author:
+Kevin Moore
