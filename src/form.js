@@ -19,7 +19,7 @@ const handleSearchGames = function() {
         </select>
         <button type="submit" class="submit">Go</button>
     </form>
-    <button class="help-button">Click here for help with filters</button>`
+    <button class="help-button">Help with filters</button>`
     $('.search').html(searchForm)
 };
 
@@ -35,7 +35,7 @@ const handleRecommendGames = function() {
         </select>
         <button type="submit" class="submit">Go</button>
     </form>
-    <button class="help-button">Click here for help with filters</button>`
+    <button class="help-button">Help with filters</button>`
     $('.search').html(recommendForm)
 };
 
