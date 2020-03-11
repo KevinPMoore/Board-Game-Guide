@@ -11,10 +11,10 @@ based on game mechanics such as dice-rolling or acting as well as themes like al
 
 Screenshots:
 * Landing Page
-    * [a set of dice on a table](./imgs/landing.png)
+    [a set of dice on a table](./imgs/landing.png)
 * Results
-    * [game title, cover image, player count and duration](./imgs/result1.png)
-    * [game description, credits and a link to the official page](.imgs/result2.png)
+    [game title, cover image, player count and duration](./imgs/result1.png)
+    [game description, credits and a link to the official page](.imgs/result2.png)
 
 Built with:
 All front-end code is built using Jquery along with vanilla Javascript and HTML
