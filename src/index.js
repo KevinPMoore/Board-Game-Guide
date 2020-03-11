@@ -93,6 +93,7 @@ const handleSubmitSearch = function() {
 };
 
 const handleDisplayResults = function(response) {
+  $('body').css("background-image", "none");
   let formattedResponse = [];
   response.forEach(function(game) {
     formattedResponse.push(

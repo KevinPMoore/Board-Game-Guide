@@ -15,8 +15,13 @@
 }
 
 body {
-    background-color: #637CB3;
+    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    background-position: center;
+    background-color:  #637CB3;
+    background-image: url('./background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav {
@@ -37,6 +42,7 @@ section.landing {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;
+    opacity: 2;
 }
 
 p.intro {
@@ -124,18 +130,6 @@ li.game {
     border: solid #FFD678;
     padding: 2px;
     min-width: 300px;
-}
-
-/*Unidentified targeting issue*/
-p.game-name {
-    text-align: center;
-    color: #FFDE91;
-    text-shadow: 1px 1px black;
-    font-size: 1.2rem;
-}
-
-/*Unidentified targeting issue*/
-p.game-play-info {
     text-align: center;
     color: #FFDE91;
     text-shadow: 1px 1px black;
