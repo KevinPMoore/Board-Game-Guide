@@ -10,7 +10,8 @@ Additionally, users more interested in browsing the vast library of games can re
 based on game mechanics such as dice-rolling or acting as well as themes like aliens or the wild west.
 
 Screenshots:
-(landing)
+Landing Page
+![a set of dice on a table](./imgs/landing.png)
 (search)
 (results)
 
