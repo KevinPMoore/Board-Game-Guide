@@ -2,7 +2,7 @@
 
 import store from './store.js'
 
-const handleSearchGames = function() {
+function handleSearchGames() {
     const searchForm = 
     `<form>
         <label for="search-input">Search</label>
@@ -23,7 +23,7 @@ const handleSearchGames = function() {
     $('.search').html(searchForm)
 };
 
-const handleRecommendGames = function() {
+function handleRecommendGames() {
     const recommendForm =
     `<form>
         <label for="search-input">Search</label>
@@ -39,7 +39,7 @@ const handleRecommendGames = function() {
     $('.search').html(recommendForm)
 };
 
-const handleFilterInstructions = function() {
+function handleFilterInstructions() {
     let filter = $('.search').find('select').val();
 
     if (filter == "name" || filter == undefined) {
@@ -62,13 +62,13 @@ const handleFilterInstructions = function() {
       }
 };
 
-const populateMechanicsList = function () {
+function populateMechanicsList() {
     let mechanicsList = [];
     store.mechanics.forEach(obj => mechanicsList.push(Object.values(obj)[1]));
     return(mechanicsList.join(', '));
 };
 
-const populateThemesList = function () {
+function populateThemesList() {
     let themesList = [];
     store.themes.forEach(obj => themesList.push(Object.values(obj)[1]));
     return(themesList.join(', '))

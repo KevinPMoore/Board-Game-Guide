@@ -4,7 +4,7 @@ import api from './api.js';
 import form from './form.js';
 import store from './store.js';
 
-const bindSearch = function() {
+function bindSearch() {
   $('.landing').on('click', '.search-button', event => {
     $('main').removeClass('hidden');
     $('.results-list').empty();
@@ -12,7 +12,7 @@ const bindSearch = function() {
   });
 };
 
-const bindRecommend = function() {
+function bindRecommend() {
     $('.landing').on('click', '.recommend-button', event => {
         $('main').removeClass('hidden');
         $('.results-list').empty();
@@ -20,14 +20,14 @@ const bindRecommend = function() {
     });
 };
 
-const bindHelpButton = function() {
+function bindHelpButton() {
   $('.search').on('click', '.help-button', event => {
     form.handleFilterInstructions();
     alert(store.alert);
   });
 };
 
-const handleSubmitSearch = function() {
+function handleSubmitSearch() {
   $('.search').submit(event => {
     event.preventDefault();
     let query = $('.search').find('input').val();
@@ -92,7 +92,7 @@ const handleSubmitSearch = function() {
   });
 };
 
-const handleDisplayResults = function(response) {
+function handleDisplayResults(response) {
   $('body').css("background-image", "none");
   let formattedResponse = [];
   response.forEach(function(game) {
@@ -119,7 +119,7 @@ const handleDisplayResults = function(response) {
   $('.results-list').html(formattedResponse);
 }
 
-const main = function() {
+function main() {
   bindSearch();
   bindRecommend();
   bindHelpButton();

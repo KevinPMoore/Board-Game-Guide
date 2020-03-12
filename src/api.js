@@ -5,7 +5,7 @@ import store from './store.js';
 const BASE_URL = 'https://www.boardgameatlas.com/api/search?';
 const client_id = '&client_id=gGLrG80h9q';
 
-const apiFetch = function(...args) {
+function apiFetch(...args) {
     let error;
     return fetch(...args)
         .then(res => {
@@ -44,39 +44,39 @@ const apiFetch = function(...args) {
         });
 };
 
-const getGameByName = function(name) {
+function getGameByName(name) {
     return apiFetch(`${BASE_URL}name=${name}&fuzzy_match=true${client_id}`);
 };
 
-const getGameByDesigner = function(designer) {
+function getGameByDesigner(designer) {
     return apiFetch(`${BASE_URL}designer=${designer}${client_id}`);
 };
 
-const getGameByPublisher = function(publisher) {
+function getGameByPublisher(publisher) {
     return apiFetch(`${BASE_URL}publisher=${publisher}${client_id}`);
 };
 
-const getGameByMinPlayers = function(players) {
+function getGameByMinPlayers(players) {
     let inclusivePlayers = (players - 1)
     return apiFetch(`${BASE_URL}gt_min_players=${inclusivePlayers}${client_id}`)
 };
 
-const getGameByMaxPlayers = function(players) {
+function getGameByMaxPlayers(players) {
     let inclusivePlayers = (players + 1)
     return apiFetch(`${BASE_URL}lt_max_players=${inclusivePlayers}${client_id}`)
 };
 
-const getGameByMinPlaytime = function(time) {
+function getGameByMinPlaytime(time) {
     let inclusivePlaytime = (time - 1)
     return apiFetch(`${BASE_URL}gt_min_playtime=${inclusivePlaytime}${client_id}`)
 };
 
-const getGameByMaxPlaytime = function(time) {
+function getGameByMaxPlaytime(time) {
     let inclusivePlaytime = (time + 1)
     return apiFetch(`${BASE_URL}lt_max_playtime=${inclusivePlaytime}${client_id}`)
 };
 
-const getMechanics = function() {
+function getMechanics() {
     let error;
     return fetch('https://www.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q')
     .then(res => {
@@ -100,13 +100,13 @@ const getMechanics = function() {
     });
 };
 
-const getGameByMechanic = function(mechanic) {
+function getGameByMechanic(mechanic) {
     let mechanicObject = store.mechanics.find(obj => obj.name === mechanic)
     let mechanicId = mechanicObject.id
     return apiFetch(`${BASE_URL}mechanics=${mechanicId}${client_id}`)
 };
 
-const getThemes = function() {
+function getThemes() {
     let error;
     return fetch('https://www.boardgameatlas.com/api/game/categories?client_id=gGLrG80h9q')
     .then(res => {
@@ -130,7 +130,7 @@ const getThemes = function() {
     })
 };
 
-const getGameByTheme = function(theme) {
+function getGameByTheme(theme) {
     let themeObject = store.themes.find(obj => obj.name === theme)
     let themeId = themeObject.id
     return fetch(`${BASE_URL}categories=${themeId}${client_id}`)
