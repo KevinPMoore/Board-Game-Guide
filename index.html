@@ -7,32 +7,34 @@
     <link rel="stylesheet" href="src/main.css">
 </head>
 <body>
-    <nav>
-        <h1>Board Game Guide</h1>
-    </nav>
-    <section class="landing">
-        <p class="intro">
-            Welcome to Board Game Guide!  Powered by the Board Game Atlas API, we help you explore thousands of board games to find the perfect fit for
-            you and your gaming group.  Already have a game you like?  Not a problem!  Our recommendation feature will help you explore similar games.
-            Click one of the buttons below to get started.
-        </p>
-        <div class="landing-buttons">
-            <button class="search-button">
-                Search
-            </button>
-            <button class="recommend-button">
-                Recommend
-            </button>
-        </div>
-    </section>
-    <main class="hidden">
-        <section class="search">
+    <div class="container">
+        <nav>
+            <h1>Board Game Guide</h1>
+        </nav>
+        <section class="landing">
+            <p class="intro">
+                Welcome to Board Game Guide!  Powered by the Board Game Atlas API, we help you explore thousands of board games to find the perfect fit for
+                you and your gaming group.  Already have a game you like?  Not a problem!  Our recommendation feature will help you explore similar games.
+                Click one of the buttons below to get started.
+            </p>
+            <div class="landing-buttons">
+                <button class="search-button">
+                    Search
+                </button>
+                <button class="recommend-button">
+                    Recommend
+                </button>
+            </div>
         </section>
-        <section class="results">
-            <ul class="results-list">
-            </ul>
-        </section> 
-    </main>
+        <main class="hidden">
+            <section class="search">
+            </section>
+            <section class="results">
+                <ul class="results-list">
+                </ul>
+            </section> 
+        </main>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="module" src="src/index.js"></script>
 </body>

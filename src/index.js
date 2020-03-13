@@ -4,6 +4,13 @@ import api from './api.js';
 import form from './form.js';
 import store from './store.js';
 
+function backToTop() {
+  $('h1').on('click', event => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  })
+}
+
 function bindSearch() {
   $('.landing').on('click', '.search-button', event => {
     $('main').removeClass('hidden');
@@ -93,7 +100,6 @@ function handleSubmitSearch() {
 };
 
 function handleDisplayResults(response) {
-  $('body').css("background-image", "none");
   let formattedResponse = [];
   response.forEach(function(game) {
     formattedResponse.push(
@@ -120,6 +126,7 @@ function handleDisplayResults(response) {
 }
 
 function main() {
+  backToTop();
   bindSearch();
   bindRecommend();
   bindHelpButton();

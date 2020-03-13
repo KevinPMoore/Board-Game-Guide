@@ -1,3 +1,18 @@
+ToDo:
+1. Combine search and recommend to one button and alter intro text
+
+2. add white shadow to buttons
+
+3. on submit, hide form and replace with search again button
+
+4. Add media query to shift content from column to rows on larger screens.
+
+5. Address user flow concerns (needs clarification).
+
+6. Redo screenshots of updated version for ReadMe.md.
+
+7. Add containers to the li elements for better css on larger screens
+
 Board Game Guide
 Repo: https://github.com/KevinPMoore/Board-Game-Guide
 
