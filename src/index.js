@@ -13,11 +13,19 @@ function backToTop() {
 
 function bindSearch() {
   $('.landing').on('click', '.search-button', event => {
+    $('.landing').find('.search-button').addClass('hidden');
     $('main').removeClass('hidden');
     $('.results-list').empty();
     form.handleSearchGames();
   });
 };
+
+function handleNewSearch() {
+  $('.search').on('click', '.new-search', event => {
+    $('.results-list').empty();
+    form.handleSearchGames();
+  })
+}
 
 function bindHelpButton() {
   $('.search').on('click', '.help-button', event => {
@@ -95,26 +103,35 @@ function handleDisplayResults(response) {
   let formattedResponse = [];
   response.forEach(function(game) {
     formattedResponse.push(
-      `<li class="game" data-id="${game.id}>
-        <p class="game-name">
-          <span>Title:</span>
-          ${game.name}
-        </p>
-        <img class="game-image" src="${game.image_url} "alt="cover art for ${game.name}>
-        <p class="game-play-info">
-          <span>Players:</span> ${game.min_players}-${game.max_players} </br>
-          <span>Duration:</span> ${game.min_playtime}-${game.max_playtime} minutes </br>
-          <span>Rating:</span> ${game.average_user_rating} </br>
-          <span>Description:</span> ${game.description} </br>
-          <span>Designer:</span> ${game.designers} </br>
-          <span>Publisher:</span> ${game.publishers} </br>
-          <span>Game Mechanics:</span> ${game.mechanics.map(obj => obj.name).join(', ')} </br>
-        </p>
-        <a class="game-link" href=${game.url} target="_blank">Learn more</a>
+      `<li class="game">
+        <section class="blurb">
+          <div class="box">
+            <p class="game-name">
+              <span>Title:</span>
+              ${game.name}
+            </p>
+            <img class="game-image" src="${game.image_url}" alt="cover art for ${game.name}">
+          </div>
+          <p class="game-description">
+            <span>Description:</span> ${game.description} </br>
+          </p>
+        </section>
+        <div class="info">
+          <p class="game-play-info">
+            <span>Players:</span> ${game.min_players}-${game.max_players} </br>
+            <span>Duration:</span> ${game.min_playtime}-${game.max_playtime} minutes </br>
+            <span>Rating:</span> ${game.average_user_rating} </br>
+            <span>Designer:</span> ${game.designers} </br>
+            <span>Publisher:</span> ${game.publishers} </br>
+            <span>Game Mechanics:</span> ${game.mechanics.map(obj => obj.name).join(', ')} </br>
+          </p>
+          <a class="game-link" href=${game.url} target="_blank">Learn more</a>
+        </div>
       </li>`
       )
   });
   $('.results-list').html(formattedResponse);
+  $('section.search').html(`<button class="new-search">New Search</button>`)
 }
 
 function main() {
@@ -122,6 +139,7 @@ function main() {
   bindSearch();
   bindHelpButton();
   handleSubmitSearch();
+  handleNewSearch();
   api.getMechanics();
   api.getThemes();
 };

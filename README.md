@@ -1,18 +1,18 @@
 ToDo:
 
-2. add white shadow to buttons
+2. Fix all elements shifting left
 
-3. on submit, hide form and replace with search again button
+3. Rename <div> elements in display results
 
 4. Add media query to shift content from column to rows on larger screens.
 
-5. Address user flow concerns (needs clarification).
-
-6. Redo screenshots of updated version for ReadMe.md.
+6. Fix background not covering screen at start
 
 7. Add containers to the li elements for better css on larger screens
 
 8. Fix when searching by theme, mechanics dont populate
+
+9. Redo screenshots of new styling
 
 Board Game Guide
 Repo: https://github.com/KevinPMoore/Board-Game-Guide
