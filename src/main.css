@@ -83,7 +83,7 @@ button {
 }
 
 button:hover {
-    box-shadow: 2px 1px black;
+    box-shadow: 1px 1px white;
     cursor: pointer;
 }
 

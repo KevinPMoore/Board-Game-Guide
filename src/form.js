@@ -5,11 +5,11 @@ import store from './store.js'
 function handleSearchGames() {
     const searchForm = 
     `<form>
-        <label for="search-input">Search</label>
-        <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
-        <label for="filter">Filters</label>
+        <label for="filter">Search by</label>
         <select id="filter" name="filter">
             <option value="name">Name</option>
+            <option value="theme">Theme</option>
+            <option value="mechanics">Mechanics</option>
             <option value="designer">Designer</option>
             <option value="publisher">Publisher</option>
             <option value="min_players">Minimum Players</option>
@@ -17,26 +17,12 @@ function handleSearchGames() {
             <option value="min_playtime">Minumum Playtime</option>
             <option value="max_playtime">Maximum Playtime</option>
         </select>
+        <label for="search-input">For</label>
+        <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
         <button type="submit" class="submit">Go</button>
     </form>
     <button class="help-button">Help with filters</button>`
     $('.search').html(searchForm)
-};
-
-function handleRecommendGames() {
-    const recommendForm =
-    `<form>
-        <label for="search-input">Search</label>
-        <input type="text" id="search-input" name="search-input" placeholder="ex. Jenga" required>
-        <label for="filter">Filters</label>
-        <select id="filter" name="filter">
-            <option value="theme">Theme</option>
-            <option value="mechanics">Mechanics</option>
-        </select>
-        <button type="submit" class="submit">Go</button>
-    </form>
-    <button class="help-button">Help with filters</button>`
-    $('.search').html(recommendForm)
 };
 
 function handleFilterInstructions() {
@@ -76,6 +62,5 @@ function populateThemesList() {
 
 export default {
     handleSearchGames,
-    handleRecommendGames,
     handleFilterInstructions
 };

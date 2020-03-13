@@ -19,14 +19,6 @@ function bindSearch() {
   });
 };
 
-function bindRecommend() {
-    $('.landing').on('click', '.recommend-button', event => {
-        $('main').removeClass('hidden');
-        $('.results-list').empty();
-        form.handleRecommendGames();
-    });
-};
-
 function bindHelpButton() {
   $('.search').on('click', '.help-button', event => {
     form.handleFilterInstructions();
@@ -128,7 +120,6 @@ function handleDisplayResults(response) {
 function main() {
   backToTop();
   bindSearch();
-  bindRecommend();
   bindHelpButton();
   handleSubmitSearch();
   api.getMechanics();

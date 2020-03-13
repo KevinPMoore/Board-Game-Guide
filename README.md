@@ -1,5 +1,4 @@
 ToDo:
-1. Combine search and recommend to one button and alter intro text
 
 2. add white shadow to buttons
 
@@ -12,6 +11,8 @@ ToDo:
 6. Redo screenshots of updated version for ReadMe.md.
 
 7. Add containers to the li elements for better css on larger screens
+
+8. Fix when searching by theme, mechanics dont populate
 
 Board Game Guide
 Repo: https://github.com/KevinPMoore/Board-Game-Guide
