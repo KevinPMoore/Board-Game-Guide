@@ -1,19 +1,3 @@
-ToDo:
-
-2. Fix all elements shifting left
-
-3. Rename <div> elements in display results
-
-4. Add media query to shift content from column to rows on larger screens.
-
-6. Fix background not covering screen at start
-
-7. Add containers to the li elements for better css on larger screens
-
-8. Fix when searching by theme, mechanics dont populate
-
-9. Redo screenshots of new styling
-
 Board Game Guide
 Repo: https://github.com/KevinPMoore/Board-Game-Guide
 
@@ -28,9 +12,11 @@ based on game mechanics such as dice-rolling or acting as well as themes like al
 Screenshots:
 * Landing Page
     * ![a set of dice on a table](./imgs/landing.png)
-* Results
-    * ![game title, cover image, player count and duration](./imgs/result1.png)
-    * ![game description, credits and a link to the official page](./imgs/result2.png)
+* Desktop Results
+    * ![a full search result for a game](./imgs/result1.png)
+*Mobile Results
+    * ![the title, box image and description for a game](./imgs/result2.png)
+    * ![more detailed information on a game, as well as a link to the official site](./imgs/result3.png)
 
 Built with:
 All front-end code is built using Jquery along with vanilla Javascript and HTML

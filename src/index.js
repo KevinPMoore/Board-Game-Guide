@@ -39,6 +39,7 @@ function handleSubmitSearch() {
     event.preventDefault();
     let query = $('.search').find('input').val();
     let filter = $('.search').find('select').val();
+    $('.container').css('height', '100%');
     if (filter == "name") {
       api.getGameByName(query)
       .then(res => {
@@ -90,12 +91,9 @@ function handleSubmitSearch() {
     else if (filter == "theme") {
       api.getGameByTheme(query)
       .then(res => {
-        return res.json();
+        handleDisplayResults(res)
       })
-      .then(data => {
-        handleDisplayResults(data.games)
-      })
-    };
+    }
   });
 };
 
@@ -112,9 +110,10 @@ function handleDisplayResults(response) {
             </p>
             <img class="game-image" src="${game.image_url}" alt="cover art for ${game.name}">
           </div>
-          <p class="game-description">
-            <span>Description:</span> ${game.description} </br>
-          </p>
+          <div class="game-description">
+            <span>Description:</span> 
+            ${game.description}
+          </div>
         </section>
         <div class="info">
           <p class="game-play-info">
