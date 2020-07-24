@@ -2,7 +2,7 @@
 
 import store from './store.js';
 
-const BASE_URL = 'https://www.boardgameatlas.com/api/search?';
+const BASE_URL = 'https://api.boardgameatlas.com/api/search?';
 const client_id = '&client_id=gGLrG80h9q';
 
 function apiFetch(...args) {
@@ -25,7 +25,7 @@ function apiFetch(...args) {
             return data;
         })
         .then(data => {
-            return fetch(`https://www.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q`)
+            return fetch(`https://api.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q`)
                 .then(res => res.json())
                 .then(mechanics => {
                     const mechanicsNormalized = mechanics.mechanics.reduce((acc, obj) => {
@@ -78,7 +78,7 @@ function getGameByMaxPlaytime(time) {
 
 function getMechanics() {
     let error;
-    return fetch('https://www.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q')
+    return fetch('https://api.boardgameatlas.com/api/game/mechanics?client_id=gGLrG80h9q')
     .then(res => {
         if(!res.ok) {
             error = {code: res.status};
@@ -108,7 +108,7 @@ function getGameByMechanic(mechanic) {
 
 function getThemes() {
     let error;
-    return fetch('https://www.boardgameatlas.com/api/game/categories?client_id=gGLrG80h9q')
+    return fetch('https://api.boardgameatlas.com/api/game/categories?client_id=gGLrG80h9q')
     .then(res => {
         if(!res.ok) {
             error = {code: res.status};
